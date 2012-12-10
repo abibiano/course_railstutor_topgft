@@ -1,11 +1,7 @@
-== Getting Started
+== TopGft
 
-1. Download/unzip or git clone this project into your local directory
+Application developed for the http://www.railstutors.com course
 
-2. Make sure you have bundler gem installed, and within this project's directory, run:
-       <tt>bundle install</tt>
+It will be a social website to share gift ideas and rank them like reddit ranks links and posts.
 
-3. Then run:       
-       <tt>rails server</tt>
-
-3. Go to http://localhost:3000 with a browser.
+It will be useful when you have to buy some gifts and don’t know what to buy
