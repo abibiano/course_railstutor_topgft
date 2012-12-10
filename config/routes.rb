@@ -1,4 +1,4 @@
 CourseProject::Application.routes.draw do
-  root to: "main#index"
-  resources :posts
+  root to: "posts#index"
+ 
 end
