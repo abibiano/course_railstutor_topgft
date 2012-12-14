@@ -1,0 +1,12 @@
+<h1><%= image_tag "gift.png" %><%= link_to @post.title, @post.url %></h1>
+
+<div class="comments">
+	<h5><%= pluralize(@post.comments.count, "comment") %></h5>
+	<ul>
+		<% @post.comments.each do |comment| %>
+			<li>
+				<%= comment.content %>
+			</li>
+		<% end %>
+	</ul>
+</div>
