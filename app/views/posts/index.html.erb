@@ -1,10 +1,10 @@
-<h1><%= image_tag "gift.png" %>Top Gifts List</h1>
+<h2><%= image_tag "gift.png" %>Top Gifts List</h2>
 
 <ul class="posts">
 	<% @posts.each do |post| %>
 	<li>
 		<p class="title"><%= link_to post.title, post.url %></p>
-		<p class="bottom"><%= pluralize(post.comments.count, "comment") %></p>
+		<p class="bottom"><%= link_to pluralize(post.comments.count, "comment"), post_path(post) %></p>
 	</li>
 	<% end %> <!-- End posts block -->
 </ul>

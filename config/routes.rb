@@ -1,5 +1,5 @@
 CourseProject::Application.routes.draw do
   root to: "posts#index"
 
-	match 'posts/:id' => 'posts#show'
+	resources :posts, only: [:show]
 end
