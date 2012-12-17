@@ -14,4 +14,18 @@ class PostsController < ApplicationController
 			format.html # show.html.erb
 		end		
 	end
+
+	def new
+		@post = Post.new
+	end
+
+	def create
+		@post = Post.new(params[:post])
+		if @post.save 
+			redirect_to root_path, notice: 'New gift was succesfully saved'
+		else
+			render action: "new"
+		end
+	end
+
 end

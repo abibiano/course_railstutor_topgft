@@ -1,10 +1,23 @@
 <h2><%= image_tag "gift.png" %>Top Gifts List</h2>
+<<<<<<< HEAD
+=======
+<%= link_to "Create a new gift", new_post_path, class: "btn btn-primary" %>
+>>>>>>> 16d5cc02d844454824bca46133f2b3729a94b056
 
 <ul class="posts">
 	<% @posts.each do |post| %>
 	<li>
+<<<<<<< HEAD
 		<p class="title"><%= link_to post.title, post.url %></p>
 		<p class="bottom"><%= link_to pluralize(post.comments.count, "comment"), post_path(post) %></p>
+=======
+		<p class="title">
+			<%= link_to post.title, post.url %>			
+		</p>
+		<p class="bottom">
+			<%= link_to pluralize(post.comments.count, "comment"), post_path(post) %>
+		</p>
+>>>>>>> 16d5cc02d844454824bca46133f2b3729a94b056
 	</li>
 	<% end %> <!-- End posts block -->
 </ul>
