@@ -4,5 +4,5 @@ CourseProject::Application.routes.draw do
   resources :posts, only: [:new, :create, :show] do
   	resources :comments, only: [:new, :create]
   end
-	
+  	
 end
