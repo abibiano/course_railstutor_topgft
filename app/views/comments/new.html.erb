@@ -3,7 +3,7 @@
   	<h1>Comments for Gift: <%= @post.title %></h1>
 			<%= form_for([@post, @comment]) do |f| %>
 				<%= f.label :content %>
-				<%= f.text_field :content %>
+				<%= f.text_area :content, rows: 5 %>
 
 				<%= f.submit "Save", class: "btn btn-large btn-primary" %>
 			<% end %>		

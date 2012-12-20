@@ -1,12 +1,12 @@
 class CommentsController < ApplicationController
 	def new
 		@comment = Comment.new
-		@post = Post.where(slug: params[:post_id]).first
+		@post = Post.find_by_slug(params[:post_id])
 	end
 
 	def create
 		@comment = Comment.new(params[:comment])
-		@comment.post = Post.where(slug: params[:post_id]).first
+		@comment.post = Post.find_by_slug(params[:post_id])
 		if @comment.save 
 			redirect_to @comment.post, notice: 'New comment was succesfully saved'
 		else
