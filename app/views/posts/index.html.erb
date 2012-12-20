@@ -4,8 +4,14 @@
 <ul class="posts">
 	<% @posts.each do |post| %>
 	<li>
-		<p class="title"><%= link_to post.title, post.url %></p>
-		<p class="bottom"><%= link_to pluralize(post.comments.count, "comment"), post_path(post) %></p>
+		<div class="row">
+  		<div class="span1">
+				<p><%= post.votes.count %></p>
+			</div>
+			<div class="span11">
+				<p class="title"><%= link_to post.title, post.url %></p>
+				<p class="bottom"><%= link_to pluralize(post.comments.count, "comment"), post_path(post) %></p>
+			</div>
 	</li>
 	<% end %> <!-- End posts block -->
 </ul>
