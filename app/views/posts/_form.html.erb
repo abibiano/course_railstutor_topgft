@@ -1,9 +1,17 @@
 <%= form_for(@post) do |f| %>
-	<%= f.label :url %>
-	<%= f.text_field :url, "URL" %>
+ 	<%= f.label :url, "URL" %>
+ 	<%= f.text_field :url %>
 
-	<%= f.label :title %>
-	<%= f.text_field :title %>
+ 	<%= f.label :title %>
+ 	<%= f.text_field :title %>
 
-	<%= f.submit "Save", class: "btn btn-large btn-primary" %>
+ 	<%= f.submit "Save", class: "btn btn-large btn-primary" %>
+ <% end %>
+
+<%= form_tag '/posts' do %>
+	<%= label_tag :url, "URL" %>
+	<%= text_field_tag "post[url]" %>
+	<%= label_tag :title %>
+	<%= text_field_tag "post[title]" %>
+	<%= submit_tag "Save", class: "btn btn-large btn-primary" %>
 <% end %>

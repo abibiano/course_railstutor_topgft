@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	def index
-		@posts = Post.find(:all, order: "id DESC")
+		@posts = Post.order("id DESC").all
 
 		respond_to do |format|
 			format.html # index.html.erb
@@ -8,8 +8,8 @@ class PostsController < ApplicationController
 	end
 
 	def show
-		@post = Post.where(slug: params[:id]).first
-
+		@post = Post.find_by_slug(params[:id])
+		@comment = Comment.new
 		respond_to do |format|
 			format.html # show.html.erb
 		end		

@@ -1,5 +1,4 @@
 <h2><%= image_tag "gift.png" %><%= link_to @post.title, @post.url %></h2>
-<%= link_to "Create a new comment", new_post_comment_path(@post), class: "btn btn-primary" %>
 
 <div class="comments">
 	<h5><%= pluralize(@post.comments.count, "comment") %></h5>
@@ -10,4 +9,15 @@
 			</li>
 		<% end %>
 	</ul>
+</div>
+<div class="row">
+  <div class="span6">
+  	<h3>Add a new comment for <%= @post.title %></h3>
+		<%= form_for([@post, @comment]) do |f| %>
+			<%= f.label :content %>
+			<%= f.text_area :content, rows: 5 %>
+
+			<%= f.submit "Save", class: "btn btn-large btn-primary" %>
+		<% end %>		
+	</div>
 </div>
