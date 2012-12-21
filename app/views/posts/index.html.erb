@@ -4,14 +4,25 @@
 <ul class="posts">
 	<% @posts.each do |post| %>
 	<li>
-		<div class="row">
-  		<div class="span1">
-				<p><%= post.votes.count %></p>
+		<div class="post_left">
+			<div class="post_vote_up">
+				<%= link_to '', post_votes_path(post), :method => :post, class: "icon-thumbs-up" %>
 			</div>
-			<div class="span11">
-				<p class="title"><%= link_to post.title, post.url %></p>
-				<p class="bottom"><%= link_to pluralize(post.comments.count, "comment"), post_path(post) %></p>
+			<div class="post_votes">
+				<span class="badge"><%= post.votes.count %></span>
 			</div>
+			<div class="post_vote_down">			
+				<%= link_to('', post_vote_path(post, post.votes.last.id), :method => :delete, class: "icon-thumbs-down") if post.votes.count > 0 %>
+			</div>
+		</div>
+		<div class = "post_right">
+			<div class="post_title">
+				<%= link_to post.title, post.url %>
+			</div>
+			<div class="post_comments">
+				<%= link_to pluralize(post.comments.count, "comment"), post_path(post) %>
+			</div>
+		</div>
 	</li>
 	<% end %> <!-- End posts block -->
 </ul>
