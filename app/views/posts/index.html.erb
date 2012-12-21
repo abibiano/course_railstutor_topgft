@@ -9,10 +9,10 @@
 				<%= link_to '', post_votes_path(post), :method => :post, class: "icon-thumbs-up" %>
 			</div>
 			<div class="post_votes">
-				<span class="badge"><%= post.votes.count %></span>
+				<span class="badge"><%= post.votes_count %></span>
 			</div>
 			<div class="post_vote_down">			
-				<%= link_to('', post_vote_path(post, post.votes.last.id), :method => :delete, class: "icon-thumbs-down") if post.votes.count > 0 %>
+				<%= link_to('', post_vote_path(post, post.votes.last.id), :method => :delete, class: "icon-thumbs-down") if post.votes_count > 0 %>
 			</div>
 		</div>
 		<div class = "post_right">
@@ -20,7 +20,7 @@
 				<%= link_to post.title, post.url %>
 			</div>
 			<div class="post_comments">
-				<%= link_to pluralize(post.comments.count, "comment"), post_path(post) %>
+				<%= link_to pluralize(post.comments_count, "comment"), post_path(post) %>
 			</div>
 		</div>
 	</li>
