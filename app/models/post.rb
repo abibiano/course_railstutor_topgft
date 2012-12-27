@@ -10,6 +10,10 @@ class Post < ActiveRecord::Base
 		slug
 	end
 
+	def vote_number
+		votes.where(direction: "up").count - votes.where(direction: "down").count
+	end
+
 	def generate_slug
 		if self.title_changed?
 			if Post.where(:slug => self.title.parameterize).count > 0

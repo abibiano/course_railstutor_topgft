@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	def index
-		@posts = Post.order("votes_count DESC, id DESC").all
+		@posts = Post.find(:all).sort_by { |post| post.vote_number }.reverse
 
 		respond_to do |format|
 			format.html # index.html.erb

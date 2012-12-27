@@ -1,5 +1,5 @@
 class Vote < ActiveRecord::Base
-  attr_accessible :post_id
+  attr_accessible :post_id, :direction
 
-  belongs_to :post, counter_cache: true
+  belongs_to :post
 end

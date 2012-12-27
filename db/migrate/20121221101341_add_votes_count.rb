@@ -2,9 +2,9 @@ class AddVotesCount < ActiveRecord::Migration
   def up
   	add_column :posts, :votes_count, :integer, :default => 0
 
-  	Post.find_each do |post|
-      post.update_attribute(:votes_count, post.votes.count)
-      post.save
+    Post.reset_column_information
+    Post.find_each do |post|
+      Post.reset_counters post.id, :votes
     end
   end
 

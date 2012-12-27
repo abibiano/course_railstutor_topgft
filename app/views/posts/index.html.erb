@@ -6,13 +6,17 @@
 	<li>
 		<div class="post_left">
 			<div class="post_vote_up">
-				<%= link_to '', post_votes_path(post), :method => :post, class: "icon-thumbs-up" %>
+				<%= link_to post_votes_path(post, direction: "up"), :method => :post do %>
+				<i class="icon-thumbs-up"></i>
+				<% end %>
 			</div>
 			<div class="post_votes">
-				<span class="badge"><%= post.votes_count %></span>
+				<span class="badge"><%= post.vote_number %></span>
 			</div>
 			<div class="post_vote_down">			
-				<%= link_to('', post_vote_path(post, post.votes.last.id), :method => :delete, class: "icon-thumbs-down") if post.votes_count > 0 %>
+				<%= link_to post_votes_path(post, direction: "down"), :method => :post do %>
+					<i class="icon-thumbs-down"></i>
+				<% end %>
 			</div>
 		</div>
 		<div class = "post_right">
@@ -26,3 +30,4 @@
 	</li>
 	<% end %> <!-- End posts block -->
 </ul>
+<p>test</p>
