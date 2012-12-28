@@ -5,7 +5,8 @@ class CommentsController < ApplicationController
 		if @comment.save 
 			redirect_to @comment.post, notice: 'New comment was succesfully saved'
 		else
-			render action: "new"
+			@post = @comment.post
+			render 'posts/show'
 		end
 	end
 end

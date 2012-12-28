@@ -6,6 +6,10 @@ class Post < ActiveRecord::Base
 
 	before_create :generate_slug
 
+	validates :title, presence: true
+	validates :title, length: { minimum: 2 }
+	validates :url, presence: true
+
 	def to_param
 		slug
 	end

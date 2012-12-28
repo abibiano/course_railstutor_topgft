@@ -1,5 +1,6 @@
-<!--
 <%= form_for(@post) do |f| %>
+	<%= render 'error_messages' %>
+	
  	<%= f.label :url, "URL" %>
  	<%= f.text_field :url %>
 
@@ -8,8 +9,8 @@
 
  	<%= f.submit "Save", class: "btn btn-large btn-primary" %>
  <% end %>
--->
 
+<!--
 <%= form_tag '/posts' do %>
 	<%= label_tag :url, "URL" %>
 	<%= text_field_tag "post[url]" %>
@@ -17,3 +18,4 @@
 	<%= text_field_tag "post[title]" %>
 	<%= submit_tag "Save", class: "btn btn-large btn-primary" %>
 <% end %>
+-->
