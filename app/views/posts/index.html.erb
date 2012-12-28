@@ -21,7 +21,7 @@
 		</div>
 		<div class = "post_right">
 			<div class="post_title">
-				<%= link_to post.title, post.url %>
+				<%= display_url_link(post) %>
 			</div>
 			<div class="post_comments">
 				<%= link_to pluralize(post.comments_count, "comment"), post_path(post) %>
@@ -30,4 +30,3 @@
 	</li>
 	<% end %> <!-- End posts block -->
 </ul>
-<p>test</p>
