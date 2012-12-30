@@ -29,6 +29,7 @@ group :assets do
   #gem 'therubyracer', :platform => :ruby
   #gem 'libv8', '~> 3.11.8'
   gem 'uglifier', '>= 1.0.3'
+  gem 'font-awesome-sass-rails'
 end
 
 gem 'jquery-rails'
