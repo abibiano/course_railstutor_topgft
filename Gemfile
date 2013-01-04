@@ -8,6 +8,7 @@ gem 'bootstrap-sass'
 group :production do
 	gem 'pg'
   gem 'newrelic_rpm'
+  gem 'thin'
 end
 
 group :development, :test do
