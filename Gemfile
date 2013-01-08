@@ -2,22 +2,27 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
 gem 'bootstrap-sass'
-gem 'thin'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :production do
 	gem 'pg'
+  gem 'thin'
 #  gem 'newrelic_rpm'
 end
 
 group :development, :test do
-	gem 'rspec-rails'
+	gem "rspec-rails", "~> 2.10.1"
+  gem "factory_girl_rails", "~> 3.2.0"
+  gem "guard-rspec", "~> 0.7.0"
 	gem 'sqlite3'
 end
 
 group :test do
-  gem 'capybara'
+  gem "faker", "~> 1.0.1"
+  gem "capybara", "~> 1.1.2"
+  gem "database_cleaner", "~> 0.7.2"
+  gem "launchy", "~> 2.1.0"
 end
 
 # Gems used only for assets and not required
