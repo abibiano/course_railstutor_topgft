@@ -2,10 +2,18 @@ require 'spec_helper'
 
 describe Post do
 
-  before { @post = Post.new(url: "http://www.amazon.com", title: "kindle") }
+  it "has a valid factory" do
+  	FactoryGirl.create(:post).should be_valid
+  end
+  it "is invalid without a URL" do
+  	FactoryGirl.build(:post, url: nil).should_not be_valid
+  end
 
-  subject { @post }
+  it "is invalid without a title" do
+    FactoryGirl.build(:post, title: nil).should_not be_valid
+  end
+  it "is invalid with a title length < 2" do
+		FactoryGirl.build(:post, title: "1").should_not be_valid
+	end
 
-  it { should respond_to(:url) }
-  it { should respond_to(:title) }
 end
