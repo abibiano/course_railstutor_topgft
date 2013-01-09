@@ -1,7 +1,17 @@
+
+@import "bootswatch/slate/variables";
+
+// Then bootstrap itself
 @import "bootstrap";
-body { padding-top: 60px; }
-@import "bootstrap-responsive";
 @import "font-awesome";
+// Bootstrap body padding for fixed navbar
+body { padding-top: 60px; }
+
+// Responsive styles go here in case you want them
+@import "bootstrap-responsive";
+
+// And finally bootswatch style itself
+@import "bootswatch/slate/bootswatch";
 
 @mixin box_sizing {
   -moz-box-sizing: border-box; 
@@ -27,6 +37,13 @@ input {
   height: auto !important;
 }
 
+/* header */
+.brand {
+  img {
+    margin-left: 5px;
+  }
+}
+
 /* posts */
 .posts {
   list-style: none;
@@ -47,18 +64,7 @@ input {
     text-align: center;
     width: 50px;
     margin-right: 20px;
-    .post_vote_up {
-      a {
-        color: $green;
-        text-decoration: none;
-      }
-    }
-    .post_vote_down {
-      a {
-        color: $red;
-        text-decoration: none;
-      }
-    }
+
   }
 
   .post_right{

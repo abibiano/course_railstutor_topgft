@@ -32,6 +32,8 @@ GEM
     arel (3.0.2)
     bootstrap-sass (2.2.2.0)
       sass (~> 3.2)
+    bootswatch-rails (0.2.0)
+      railties (>= 3.1)
     builder (3.0.4)
     capybara (1.1.4)
       mime-types (>= 1.16)
@@ -180,6 +182,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass
+  bootswatch-rails
   capybara (~> 1.1.2)
   coffee-rails (~> 3.2.1)
   database_cleaner (~> 0.7.2)
