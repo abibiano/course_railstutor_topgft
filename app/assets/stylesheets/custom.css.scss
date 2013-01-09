@@ -64,7 +64,16 @@ input {
     text-align: center;
     width: 50px;
     margin-right: 20px;
-
+    .post_vote_up {
+      a {
+        text-decoration: none;
+      }
+    }
+    .post_vote_down {
+      a {
+        text-decoration: none;
+      }
+    }
   }
 
   .post_right{
