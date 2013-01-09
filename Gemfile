@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
-gem 'bootstrap-sass'
-gem 'bootswatch-rails'
+gem 'bootstrap-sass', "~> 2.2.2.0"
+gem 'bootswatch-rails', "~> 0.2.0"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -16,7 +16,7 @@ group :development, :test do
 	gem "rspec-rails", "~> 2.10.1"
   gem "factory_girl_rails", "~> 3.2.0"
   gem "guard-rspec", "~> 0.7.0"
-	gem 'sqlite3'
+	gem 'sqlite3', "~> 1.3.6"
 end
 
 group :test do
@@ -35,11 +35,11 @@ group :assets do
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   #gem 'therubyracer', :platform => :ruby
   #gem 'libv8', '~> 3.11.8'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'font-awesome-sass-rails'
+  gem 'uglifier', '~> 1.3.0'
+  gem 'font-awesome-sass-rails', '~> 2.0.0.0'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 2.1.4'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
