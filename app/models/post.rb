@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
 	has_many :comments
 	has_many :votes
 
-	before_create :generate_slug
+	before_save :generate_slug
 
 	validates :title, presence: true
 	validates :title, length: { minimum: 2 }
