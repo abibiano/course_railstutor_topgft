@@ -16,7 +16,7 @@
   <div class="span6">
   	<h3>Add a new comment for <%= @post.title %></h3>
 		<%= form_for([@post, @comment]) do |f| %>
-			<%= render 'error_messages' %>
+			<%= render 'shared/error_messages', object: @comment %>
 
 			<%= f.label :content %>
 			<%= f.text_area :content, rows: 5 %>

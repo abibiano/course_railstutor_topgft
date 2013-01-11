@@ -1,18 +1,11 @@
 class PostsController < ApplicationController
 	def index
-		@posts = Post.find(:all).sort_by { |post| post.vote_number }.reverse
-
-		respond_to do |format|
-			format.html # index.html.erb
-		end
+		@posts = Post.all.sort_by { |post| post.vote_number }.reverse
 	end
 
 	def show
-		@post = Post.find_by_slug(params[:id])
+		@post = Post.where(slug: params[:id]).first
 		@comment = Comment.new
-		respond_to do |format|
-			format.html # show.html.erb
-		end		
 	end
 
 	def new
