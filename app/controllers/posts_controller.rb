@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+	before_filter :require_user, only: [:new, :create]
+
 	def index
 		@posts = Post.all.sort_by { |post| post.vote_number }.reverse
 	end
@@ -14,6 +16,7 @@ class PostsController < ApplicationController
 
 	def create
 		@post = Post.new(params[:post])
+		@post.user = current_user
 		if @post.save 
 			redirect_to root_path, notice: 'New gift was succesfully saved'
 		else

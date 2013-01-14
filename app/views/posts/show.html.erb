@@ -1,5 +1,8 @@
 <div class="hero-unit">
 	<h1><%= image_tag "gift_72_black.png" %> <%= link_to @post.title, @post.url %></h1>
+	<% if !@post.user.nil? %>
+		published by <%= post.user.username %>
+	<% end %>
 </div>
 
 <div class="comments">
@@ -8,20 +11,25 @@
 		<% @post.comments.each do |comment| %>
 			<li>
 				<%= comment.content %>
+				<% if !comment.user.nil? %>
+					published by <%= comment.user.username %>
+				<% end %>
 			</li>
 		<% end %>
 	</ul>
 </div>
-<div class="row">
-  <div class="span6">
-  	<h3>Add a new comment for <%= @post.title %></h3>
-		<%= form_for([@post, @comment]) do |f| %>
-			<%= render 'shared/error_messages', object: @comment %>
+<% if logged_in? %>
+	<div class="row">
+	  <div class="span6">
+	  	<h3>Add a new comment for <%= @post.title %></h3>
+			<%= form_for([@post, @comment]) do |f| %>
+				<%= render 'shared/error_messages', object: @comment %>
 
-			<%= f.label :content %>
-			<%= f.text_area :content, rows: 5 %>
+				<%= f.label :content %>
+				<%= f.text_area :content, rows: 5 %>
 
-			<%= f.submit "Save", class: "btn btn-large btn-primary" %>
-		<% end %>		
+				<%= f.submit "Save", class: "btn btn-large btn-primary" %>
+			<% end %>		
+		</div>
 	</div>
-</div>
+<% end %>

@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130111100119) do
+ActiveRecord::Schema.define(:version => 20130114113218) do
 
   create_table "comments", :force => true do |t|
     t.string   "content"
     t.integer  "post_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   create_table "posts", :force => true do |t|
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20130111100119) do
     t.string   "slug"
     t.integer  "votes_count",    :default => 0
     t.integer  "comments_count", :default => 0
+    t.integer  "user_id"
   end
 
   add_index "posts", ["slug"], :name => "index_posts_on_slug", :unique => true

@@ -8,29 +8,40 @@
 
 </div>
 <h2><%= image_tag "gift_48_white.png" %> Top Gifts List</h2>
-<%= link_to "Create a new gift", new_post_path, class: "btn btn-primary" %>
+<% if logged_in? %>
+	<%= link_to "Create a new gift", new_post_path, class: "btn btn-primary" %>
+<% end %>
 
 <ul class="posts">
 	<% @posts.each do |post| %>
 	<li>
 		<div class="post_left">
-			<div class="post_vote_up">
-				<%= link_to post_votes_path(post, direction: "up"), :method => :post do %>
-				<i class="icon-thumbs-up icon-large"></i>
-				<% end %>
-			</div>
+			<% if logged_in? %>
+				<div class="post_vote_up">
+					<%= link_to post_votes_path(post, direction: "up"), :method => :post do %>
+					<i class="icon-thumbs-up icon-large"></i>
+					<% end %>
+				</div>
+			<% end %>
 			<div class="post_votes">
 				<span class="badge"><%= post.vote_number %></span>
 			</div>
-			<div class="post_vote_down">			
-				<%= link_to post_votes_path(post, direction: "down"), :method => :post do %>
-					<i class="icon-thumbs-down icon-large"></i>
-				<% end %>
-			</div>
+			<% if logged_in? %>
+				<div class="post_vote_down">			
+					<%= link_to post_votes_path(post, direction: "down"), :method => :post do %>
+						<i class="icon-thumbs-down icon-large"></i>
+					<% end %>
+				</div>
+			<% end %>
 		</div>
 		<div class = "post_right">
 			<div class="post_title">
 				<%= display_url_link(post) %>
+			</div>
+			<div class="post_author">
+				<% if !post.user.nil? %>
+					published by <%= post.user.username %>
+				<% end %>
 			</div>
 			<div class="post_comments">
 				<%= link_to pluralize(post.comments_count, "comment"), post_path(post) %>
