@@ -7,4 +7,5 @@ module PostsHelper
 			link_to post.title, "http://" + post.url
 		end
 	end
+
 end

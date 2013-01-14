@@ -14,7 +14,7 @@
 
 <ul class="posts">
 	<% @posts.each do |post| %>
-	<li>
+	<li class="post_item">
 		<div class="post_left">
 			<% if logged_in? %>
 				<div class="post_vote_up">
@@ -22,6 +22,8 @@
 					<i class="icon-thumbs-up icon-large"></i>
 					<% end %>
 				</div>
+			<% else %>
+				<br>
 			<% end %>
 			<div class="post_votes">
 				<span class="badge"><%= post.vote_number %></span>
@@ -37,6 +39,7 @@
 		<div class = "post_right">
 			<div class="post_title">
 				<%= display_url_link(post) %>
+				<i class="icon-external-link"></i>
 			</div>
 			<div class="post_author">
 				<% if !post.user.nil? %>

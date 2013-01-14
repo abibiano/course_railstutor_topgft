@@ -4,11 +4,14 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.new(params[:user])
+		@user = User.new
+		@user.username = params[:user][:username]
+		@user.password = params[:user][:password]
 		if @user.save
+			session[:user_id] = @user.id
 			redirect_to root_path, notice: 'User was succesfully created'
 		else
-			render action: "new"
+			render "new"
 		end
 	end
 end

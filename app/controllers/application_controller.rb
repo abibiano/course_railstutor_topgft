@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   def current_user
-  	User.where(id: session[:user_id]).first
+  	User.find(session[:user_id]) if !session[:user_id].nil?
   end
 
   def logged_in?

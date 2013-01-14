@@ -59,40 +59,41 @@ input {
       border-bottom: 1px solid $grayLighter;
     }
   }
-  .post_left {
-    float: left;
-    text-align: center;
-    width: 50px;
-    margin-right: 20px;
-    .post_vote_up {
-      a {
-        text-decoration: none;
+
+  .post_item {
+    .post_left {
+      float: left;
+      width: 50px;
+      text-align: center;
+      margin-right: 20px;
+      .post_vote_up {
+        a {
+          text-decoration: none;
+        }
+      }
+      .post_vote_down {
+        a {
+          text-decoration: none;
+        }
       }
     }
-    .post_vote_down {
-      a {
-        text-decoration: none;
+
+    .post_right{
+      .post_title {    
+        font-size: 1.4em;
+        margin-top: 14px;
+        margin-bottom: 2px;
       }
-    }
+      .post_comments {
+        font-size: 0.9em;
+        line-height: 0.9em;
+        margin: 0px;
+        a {
+          color: $gray;
+        }
+      }
+    } 
   }
-
-  .post_right{
-
-  }
-  .post_title {    
-    font-size: 1.4em;
-    margin-top: 14px;
-    margin-bottom: 2px;
-  }
-  .post_comments {
-    font-size: 0.9em;
-    line-height: 0.9em;
-    margin: 0px;
-    a {
-      color: $gray;
-    }
-  }
-
 }
 
 .comments {

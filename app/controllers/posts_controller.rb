@@ -20,7 +20,7 @@ class PostsController < ApplicationController
 		if @post.save 
 			redirect_to root_path, notice: 'New gift was succesfully saved'
 		else
-			render action: "new"
+			render "new"
 		end
 	end
 
