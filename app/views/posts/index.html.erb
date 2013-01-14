@@ -2,10 +2,7 @@
   <h1>Welcome to topGft</h1>
   <h2>where people rank his wishes</h2>
 	<br>
-  <p>You don’t know what to give?</p>
-  <p>What are people most desired gadgets?</p>
-	<p>Add the things you want to receive your next birthday or view for what are asking other people</p>
-
+	<p>Add things you want to receive your next birthday or view for what are asking other people</p>
 </div>
 <h2><%= image_tag "gift_48_white.png" %> Top Gifts List</h2>
 <% if logged_in? %>
@@ -15,41 +12,51 @@
 <ul class="posts">
 	<% @posts.each do |post| %>
 	<li class="post_item">
-		<div class="post_left">
-			<% if logged_in? %>
-				<div class="post_vote_up">
-					<%= link_to post_votes_path(post, direction: "up"), :method => :post do %>
-					<i class="icon-thumbs-up icon-large"></i>
+		<div class="row">
+	  	<div class="span1">
+				<div class="post_left">
+					<% if logged_in? %>
+						<div class="post_vote_up">
+							<%= link_to post_votes_path(post, direction: "up"), :method => :post do %>
+							<i class="icon-thumbs-up icon-large"></i>
+							<% end %>
+						</div>
+					<% else %>
+						<br>
 					<% end %>
-				</div>
-			<% else %>
-				<br>
-			<% end %>
-			<div class="post_votes">
-				<span class="badge"><%= post.vote_number %></span>
-			</div>
-			<% if logged_in? %>
-				<div class="post_vote_down">			
-					<%= link_to post_votes_path(post, direction: "down"), :method => :post do %>
-						<i class="icon-thumbs-down icon-large"></i>
+					<div class="post_votes">
+						<span class="badge"><%= post.vote_number %></span>
+					</div>
+					<% if logged_in? %>
+						<div class="post_vote_down">			
+							<%= link_to post_votes_path(post, direction: "down"), :method => :post do %>
+								<i class="icon-thumbs-down icon-large"></i>
+							<% end %>
+						</div>
 					<% end %>
-				</div>
-			<% end %>
-		</div>
-		<div class = "post_right">
-			<div class="post_title">
-				<%= display_url_link(post) %>
-				<i class="icon-external-link"></i>
-			</div>
-			<div class="post_author">
-				<% if !post.user.nil? %>
-					published by <%= post.user.username %>
-				<% end %>
-			</div>
-			<div class="post_comments">
-				<%= link_to pluralize(post.comments_count, "comment"), post_path(post) %>
-			</div>
-		</div>
+				</div> <!-- END post_left -->
+			</div> <!-- END column left -->
+			<div class="span11">
+				<div class = "post_right">
+					<div class="post_title">
+						<%= display_url_link(post) %>
+						<i class="icon-external-link"></i>
+					</div>
+					<div class="post_author">
+						<% if !post.user.nil? %>
+							published <%= time_ago_in_words(post.created_at) %> ago by <%= link_to post.user.username, user_path(post.user) %> 
+						<% else %>
+							<br>
+						<% end %>
+					</div>
+					<div class="post_comments">
+						<%= link_to pluralize(post.comments_count, "comment"), post_path(post) %>
+					</div>
+				</div> <!-- END post_rigth -->
+
+			</div> <!-- column right -->
+		</div> <!-- END row -->
+
 	</li>
 	<% end %> <!-- End posts block -->
 </ul>

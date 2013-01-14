@@ -62,10 +62,9 @@ input {
 
   .post_item {
     .post_left {
-      float: left;
-      width: 50px;
-      text-align: center;
-      margin-right: 20px;
+      text-align: center;    
+      margin-left: auto;
+      margin-right: auto;
       .post_vote_up {
         a {
           text-decoration: none;
@@ -81,7 +80,7 @@ input {
     .post_right{
       .post_title {    
         font-size: 1.4em;
-        margin-top: 14px;
+        margin-top: 2px;
         margin-bottom: 2px;
       }
       .post_comments {
@@ -95,6 +94,7 @@ input {
     } 
   }
 }
+
 
 .comments {
   h5 {

@@ -1,7 +1,7 @@
 <div class="hero-unit">
 	<h1><%= image_tag "gift_72_black.png" %> <%= link_to @post.title, @post.url %></h1>
 	<% if !@post.user.nil? %>
-		published by <%= post.user.username %>
+		published <%= time_ago_in_words(@post.created_at) %> ago by <%= link_to @post.user.username, user_path(@post.user) %> 										
 	<% end %>
 </div>
 
@@ -12,7 +12,9 @@
 			<li>
 				<%= comment.content %>
 				<% if !comment.user.nil? %>
-					published by <%= comment.user.username %>
+						(published 
+						<%= time_ago_in_words(comment.created_at) %> ago by <%= link_to comment.user.username, user_path(comment.user) %>
+						)
 				<% end %>
 			</li>
 		<% end %>

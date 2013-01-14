@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 	before_filter :require_user, only: [:new, :create]
 
 	def index
-		@posts = Post.all.sort_by { |post| post.vote_number }.reverse
+		@posts = Post.all.sort_by { |post| [post.vote_number, post.created_at] }.reverse
 	end
 
 	def show

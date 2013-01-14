@@ -14,4 +14,11 @@ class UsersController < ApplicationController
 			render "new"
 		end
 	end
+
+	def show
+		@user = User.where(slug: params[:id]).first
+		@last_posts = @user.posts.limit(10).order('created_at asc')
+		@last_comments = @user.comments.limit(10).order('created_at asc')
+		@last_votes = @user.votes.limit(10).order('created_at asc')
+	end
 end

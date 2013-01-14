@@ -6,7 +6,7 @@ CourseProject::Application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
-  resources :users, only: [:create]
+  resources :users, only: [:create, :show]
   
   resources :posts, only: [:new, :create, :show] do
   	resources :comments, only: [:create]
