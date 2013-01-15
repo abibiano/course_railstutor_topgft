@@ -6,7 +6,7 @@
 </div>
 <h2>Recent activities</h2>
 <div class="row">
-  <div class="span4">  	
+  <div class="span3">  	
    	<h3>Last posts</h3>
    	<ul>
    		<% @last_posts.each do |post| %>
@@ -14,7 +14,7 @@
    		<% end %>
    	</ul>
   </div>
-  <div class="span4">  	
+  <div class="span3">  	
   	<h3>Last comments</h3>
   	<ul>
       <% @last_comments.each do |comment| %>
@@ -22,7 +22,7 @@
       <% end %>		
    	</ul>
 	</div>  	
-	<div class="span4">  	
+	<div class="span3">  	
   	<h3>Last votes</h3>
   	<ul>
       <% @last_votes.each do |vote| %>
@@ -30,4 +30,14 @@
       <% end %>
    	</ul>
 	</div>  	
+  <div class="span3">   
+    <h3>Last Tweets <small><%= @user.twitter_handle.to_s %></small></h3>
+    <ul>
+      <% Twitter.user_timeline(@user.twitter_handle.to_s, count: 10).each do |tweet| %>
+        <li class="last_tweets">
+          <%= tweet.text %>
+        </li>
+      <% end %>
+    </ul>
+  </div>      
 </div>

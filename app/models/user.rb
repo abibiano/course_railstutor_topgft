@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	attr_accessible :twitter_handle
+
 	has_secure_password
 
 	has_many :comments

@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 		@user = User.new
 		@user.username = params[:user][:username]
 		@user.password = params[:user][:password]
+		@user.twitter_handle = params[:user][:twitter_handle]
 		if @user.save
 			session[:user_id] = @user.id
 			redirect_to root_path, notice: 'User was succesfully created'

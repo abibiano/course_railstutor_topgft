@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130114153436) do
+ActiveRecord::Schema.define(:version => 20130115102044) do
 
   create_table "comments", :force => true do |t|
     t.string   "content"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20130114153436) do
     t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "twitter_handle"
   end
 
   add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
