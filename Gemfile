@@ -11,7 +11,7 @@ gem 'twitter', "~> 4.4.4"
 group :production do
 	gem 'pg'
   gem 'thin'
-#  gem 'newrelic_rpm'
+  gem 'newrelic_rpm'
 end
 
 group :development, :test do
