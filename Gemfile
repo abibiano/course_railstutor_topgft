@@ -5,6 +5,7 @@ gem 'bootstrap-sass', "~> 2.2.2.0"
 gem 'bootswatch-rails', "~> 0.2.0"
 gem 'bcrypt-ruby', "~> 3.0.1"
 gem 'twitter', "~> 4.4.4"
+gem 'google-analytics-rails'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
