@@ -21,25 +21,32 @@
 			<% posts.each do |post| %>
 				<li class="post_item">
 					<div class="post_left">
-						<% if logged_in? %>
-							<div class="post_vote_up">
+						<div class="post_vote_up">
+							<% if logged_in? %>						
 								<%= link_to post_votes_path(post, direction: "up"), :method => :post do %>
-								<i class="icon-thumbs-up icon-large"></i>
+									<i class="icon-thumbs-up icon-large"></i>
 								<% end %>
-							</div>
-						<% else %>
-							<br>
-						<% end %>
+							<% else %>
+								<%= link_to login_path do %>
+									<i class="icon-thumbs-up icon-large"></i>
+								<% end %>
+							<% end %>
+						</div>						
 						<div class="post_votes">
 							<span class="badge"><%= post.vote_number %></span>
 						</div>
-						<% if logged_in? %>
-							<div class="post_vote_down">			
+						
+						<div class="post_vote_down">			
+							<% if logged_in? %>
 								<%= link_to post_votes_path(post, direction: "down"), :method => :post do %>
 									<i class="icon-thumbs-down icon-large"></i>
 								<% end %>
-							</div>
-						<% end %>
+							<% else %>
+								<%= link_to login_path do %>
+									<i class="icon-thumbs-down icon-large"></i>
+								<% end %>
+							<% end %>
+						</div>
 					</div> <!-- END post_left -->
 					<div class = "post_right">
 						<div class="post_title">
@@ -54,7 +61,10 @@
 							<% end %>
 						</div>
 						<div class="post_comments">
-							<%= link_to pluralize(post.comments_count, "comment"), post_path(post) %>
+							<%= link_to post_path(post) do %>
+								<i class="icon-comments"></i>
+								<%= pluralize(post.comments_count, "comment") %>
+							<% end %>
 						</div>
 					</div> <!-- END post_rigth -->
 
