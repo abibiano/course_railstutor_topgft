@@ -12,6 +12,7 @@ class Post < ActiveRecord::Base
 	validates :title, presence: true
 	validates :title, length: { minimum: 2 }
 	validates :url, presence: true
+	validates :category_id, presence: true
 
 	def to_param
 		slug
