@@ -4,52 +4,5 @@
 	<br>
 	<p>Add things you want to receive your next birthday or view for what are asking other people</p>
 </div>
-<h2><%= image_tag "gift_48_white.png" %> Top Gifts List</h2>
-<% if logged_in? %>
-	<%= link_to "Create a new gift", new_post_path, class: "btn btn-primary" %>
-<% end %>
 
-<ul class="posts">
-	<% @posts.each do |post| %>
-	<li class="post_item">
-		<div class="post_left">
-			<% if logged_in? %>
-				<div class="post_vote_up">
-					<%= link_to post_votes_path(post, direction: "up"), :method => :post do %>
-					<i class="icon-thumbs-up icon-large"></i>
-					<% end %>
-				</div>
-			<% else %>
-				<br>
-			<% end %>
-			<div class="post_votes">
-				<span class="badge"><%= post.vote_number %></span>
-			</div>
-			<% if logged_in? %>
-				<div class="post_vote_down">			
-					<%= link_to post_votes_path(post, direction: "down"), :method => :post do %>
-						<i class="icon-thumbs-down icon-large"></i>
-					<% end %>
-				</div>
-			<% end %>
-		</div> <!-- END post_left -->
-		<div class = "post_right">
-			<div class="post_title">
-				<%= display_url_link(post) %>
-				<i class="icon-external-link"></i>
-			</div>
-			<div class="post_author">
-				<% if !post.user.nil? %>
-					published <%= time_ago_in_words(post.created_at) %> ago by <%= link_to post.user.username, user_path(post.user) %> 
-				<% else %>
-					<br>
-				<% end %>
-			</div>
-			<div class="post_comments">
-				<%= link_to pluralize(post.comments_count, "comment"), post_path(post) %>
-			</div>
-		</div> <!-- END post_rigth -->
-
-	</li>
-	<% end %> <!-- End posts block -->
-</ul>
+<%= render "shared/post_list", posts: @posts, current_category: nil %>

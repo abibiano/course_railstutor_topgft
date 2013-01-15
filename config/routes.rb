@@ -7,7 +7,9 @@ CourseProject::Application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
   resources :users, only: [:create, :show]
-  
+
+  resources :categories, only: [:show]
+
   resources :posts, only: [:new, :create, :show] do
   	resources :comments, only: [:create]
   	resources :votes, only: [:create]

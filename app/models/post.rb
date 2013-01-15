@@ -1,10 +1,11 @@
 class Post < ActiveRecord::Base
-	attr_accessible :url, :title
+	attr_accessible :url, :title, :category_id
 
 	has_many :comments
 	has_many :votes
 
 	belongs_to :user
+	belongs_to :category
 
 	before_save :generate_slug
 
