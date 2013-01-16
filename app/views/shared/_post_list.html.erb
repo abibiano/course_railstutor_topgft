@@ -17,6 +17,9 @@
 		<% if logged_in? %>
 			<%= link_to "Create a new gift", new_post_path, class: "btn btn-primary" %>
 		<% end %>
+
+		<%= will_paginate @posts %>
+
 		<ul class="posts">
 			<% posts.each do |post| %>
 				<li class="post_item">
@@ -33,7 +36,7 @@
 							<% end %>
 						</div>						
 						<div class="post_votes">
-							<span class="badge"><%= post.vote_number %></span>
+							<span class="badge"><%= post.votes_count %></span>
 						</div>
 						
 						<div class="post_vote_down">			
@@ -71,5 +74,8 @@
 				</li>
 			<% end %> <!-- End posts block -->
 		</ul>
+
+		<%= will_paginate @posts %>
+
 	</div>
 </div>

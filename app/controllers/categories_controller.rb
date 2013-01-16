@@ -2,8 +2,8 @@ class CategoriesController < ApplicationController
 	def show
 		@category = Category.where(slug: params[:id]).first
 		@posts = []
-		if !@category.nil?
-			@posts = @category.posts.sort_by { |post| [post.vote_number, post.created_at] }.reverse
+		if !@category.nil?			
+			@posts = @category.posts.order('votes_count DESC, created_at DESC').page(params[:page])
 		end
 	end
 end

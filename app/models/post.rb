@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-	attr_accessible :url, :title, :category_id
+	attr_accessible :url, :title, :category_id, :votes_count
 
 	has_many :comments
 	has_many :votes
@@ -16,10 +16,6 @@ class Post < ActiveRecord::Base
 
 	def to_param
 		slug
-	end
-
-	def vote_number
-		votes.where(direction: "up").count - votes.where(direction: "down").count
 	end
 
 	def generate_slug

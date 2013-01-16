@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
 	before_filter :require_user, only: [:new, :create]
 
-	def index
-		@posts = Post.all.sort_by { |post| [post.vote_number, post.created_at] }.reverse
+	def index		
+		@posts = Post.order('votes_count DESC, created_at DESC').page(params[:page])		
 	end
 
 	def show
